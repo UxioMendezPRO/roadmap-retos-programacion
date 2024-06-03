@@ -1,6 +1,7 @@
 # Manejo de ficheros
 
 
+# Clase
 class Product:
     def __init__(self, nombre_producto, cantidad_vendida, precio) -> None:
         pass
@@ -19,6 +20,10 @@ class Product:
 
 
 product_list = []
+txt = open("fichero.txt", "w+")
+
+
+# Métodos
 
 
 def anadir():
@@ -36,7 +41,9 @@ def consultar():
 
 
 def actualizar():
-    return product_list
+    txt.write(product_list)
+    txt.close()
+    return txt
 
 
 def eliminar():
