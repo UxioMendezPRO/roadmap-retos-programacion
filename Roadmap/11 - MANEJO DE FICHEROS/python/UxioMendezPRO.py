@@ -18,6 +18,9 @@ class Product:
     def get_precio(self):
         return self.__precio
 
+    def toString(self):
+        return f"{self.__nombre_producto}, {self.__cantidad_vendida}, {self.__precio}"
+
 
 product_list = []
 txt = open("fichero.txt", "w+")
@@ -41,8 +44,9 @@ def consultar():
 
 
 def actualizar():
-    txt.write(product_list)
-    txt.close()
+    for product in product_list:
+        txt.write(product.toString())
+        txt.close()
     return txt
 
 
@@ -62,3 +66,13 @@ while salir == False:
     menu = input(
         "1. Añadir \n 2. Consultar \n 3.Actualizar \n 4.Eliminar Productos \n 5. Salir"
     )
+    if menu == "1":
+        anadir()
+    if menu == "2":
+        consultar()
+    if menu == "3":
+        actualizar()
+    if menu == "4":
+        eliminar()
+    if menu == "5":
+        salir()
